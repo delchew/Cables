@@ -1,6 +1,4 @@
-﻿using Cables;
-
-namespace CablesCraftMobile
+﻿namespace Cables
 {
     public class TwistMode
     {

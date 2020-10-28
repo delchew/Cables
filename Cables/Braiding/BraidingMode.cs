@@ -1,6 +1,6 @@
 ﻿using Cables.Materials;
 
-namespace CablesCraftMobile
+namespace Cables
 {
     public class BraidingMode
     {

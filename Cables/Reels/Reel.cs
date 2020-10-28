@@ -1,4 +1,4 @@
-﻿namespace CablesCraftMobile
+﻿namespace Cables
 {
     public class Reel
     {
