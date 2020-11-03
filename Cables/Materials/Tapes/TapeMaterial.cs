@@ -1,12 +1,12 @@
 ﻿using System;
 namespace Cables.Materials
 {
-    public struct TapeMaterial
+    public struct TapeMaterial : IMaterial
     {
         public string Name { get; set; }
 
-        private double tapeMaterialDensity;
-        public double TapeMaterialDensity
+        private int tapeMaterialDensity;
+        public int Density20
         {
             get { return tapeMaterialDensity; }
             set

@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 namespace Cables.Materials
 {
-    public struct Polymer
+    public struct Polymer : IMaterial
     {
         /// <summary>
         /// Название материала 

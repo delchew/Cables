@@ -8,13 +8,13 @@ namespace Cables
 {
     public class TwistedCoreBuilder
     {
-        private readonly IDictionary<int, TwistInfo> twistInfoDictionary;
+        private readonly ICollection<TwistInfo> twistInfoList;
         public readonly int MaxTwistedElementsCount;
 
-        public TwistedCoreBuilder(IDictionary<int, TwistInfo> twistInfoDictionary)
+        public TwistedCoreBuilder(ICollection<TwistInfo> twistInfoList)
         {
-            this.twistInfoDictionary = twistInfoDictionary;
-            MaxTwistedElementsCount = twistInfoDictionary.Values.Last().QuantityElements;
+            this.twistInfoList = twistInfoList;
+            MaxTwistedElementsCount = twistInfoList.Last().QuantityElements;
         }
 
         private readonly Dictionary<TwistedElementType, Func<double, double, double>> CalcCoreDiametersMethods =
@@ -63,7 +63,6 @@ namespace Cables
                 throw new ArgumentException("Метод не работает с типом скрученного сердечника Core!");
             CheckInputTwistedElementsCount(twistedElementsCount);
             var twistKoefficient = GetTwistKoefficient(twistedElementsCount);
-
             return CalcCoreDiametersMethods[elementType].Invoke(singleElementDiameter, twistKoefficient);
         }
 
@@ -80,7 +79,7 @@ namespace Cables
         public TwistInfo GetTwistInfo(int twistedElementsCount)
         {
             CheckInputTwistedElementsCount(twistedElementsCount);
-            return twistInfoDictionary[twistedElementsCount];
+            return twistInfoList.Where(info => info.QuantityElements == twistedElementsCount).First();
         }
 
         public double GetTwistStep(ICableElement singleTwistedElement, double twistedCoreDiameter)

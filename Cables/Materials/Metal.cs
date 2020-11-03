@@ -2,7 +2,7 @@
 
 namespace Cables.Materials
 {
-    public struct Metal
+    public struct Metal : IMaterial
     {
         /// <summary>
         /// Название материала 
