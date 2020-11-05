@@ -1,7 +1,7 @@
 ﻿using Cables.Materials;
 
 
-namespace Cables.CableElements
+namespace Cables
 {
     public class TwistedCore : ICableElement
     {

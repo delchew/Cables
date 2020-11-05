@@ -1,4 +1,4 @@
-﻿namespace Cables.CableElements
+﻿namespace Cables
 {
     public enum ExtrusionOverlayType
     {
