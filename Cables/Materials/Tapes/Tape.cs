@@ -38,9 +38,7 @@ namespace Cables.Materials
                     return TapeLayers[0].Thickness;
                 var thickness = 0d;
                 foreach (var tape in TapeLayers)
-                {
                     thickness += tape.Thickness;
-                }
                 return thickness;
             }
         }

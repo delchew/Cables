@@ -3,7 +3,7 @@ namespace Cables.Materials
 {
     public struct TapeLayer
     {
-        public TapeMaterial TapeMaterial { get; set; }
+        public IMaterial TapeMaterial { get; set; }
 
         private double thickness;
         public double Thickness
