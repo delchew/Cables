@@ -5,7 +5,6 @@ namespace Cables.Materials
     public struct Metal : IMaterial
     {
         private int density20;
-        private double electricalResistance20;
         private string name;
 
         /// <summary>
@@ -19,20 +18,6 @@ namespace Cables.Materials
                 if (string.IsNullOrEmpty(value))
                     throw new ArgumentException("Должно быть задано конкретное название для металла!");
                 name = value;
-            }
-        }
-
-        /// <summary>
-        /// Электрическое сопротивление в Ом/км, при 20°С
-        /// </summary>
-        public double ElectricalResistance20
-        {
-            get { return electricalResistance20; }
-            set
-            {
-                if (value <= 0)
-                    throw new ArgumentException("Электрическое сопротивление металла не может быть меньше или равно 0!");
-                electricalResistance20 = value;
             }
         }
 
@@ -55,7 +40,6 @@ namespace Cables.Materials
             if (obj is Metal metal)
             {
                 return Name == metal.Name &&
-                       ElectricalResistance20 == metal.ElectricalResistance20 &&
                        Density20 == metal.Density20;
             }
             throw new InvalidCastException($"Объект не является типом {GetType()}");

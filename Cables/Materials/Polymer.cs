@@ -14,11 +14,6 @@ namespace Cables.Materials
         public int Density20 { get; set; }
 
         /// <summary>
-        /// Диэлектрическая проницаемость
-        /// </summary>
-        public double DielectricConstant { get; set; }
-
-        /// <summary>
         /// Цвет материала 
         /// </summary>
         public Color Color { get; set; }

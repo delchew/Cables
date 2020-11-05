@@ -1,5 +1,4 @@
-﻿using Cables.CableElements;
-using Cables.Materials;
+﻿using Cables.Materials;
 using System;
 using System.Collections.Generic;
 using System.Linq;
