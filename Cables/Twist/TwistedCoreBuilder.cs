@@ -5,18 +5,18 @@ using System.Linq;
 
 namespace Cables
 {
-    public class TwistedCoreBuilder
+    public class TwistBuilder
     {
-        private readonly ICollection<TwistInfo> twistInfoList;
-        public readonly int MaxTwistedElementsCount;
+        private static ICollection<TwistInfo> baseTwistInfoList;
+        public static int MaxTwistedElementsCount;
 
-        public TwistedCoreBuilder(ICollection<TwistInfo> twistInfoList)
+        public static void SetTwistInfoList(ICollection<TwistInfo> twistInfoList)
         {
-            this.twistInfoList = twistInfoList;
+            baseTwistInfoList = twistInfoList;
             MaxTwistedElementsCount = twistInfoList.Last().QuantityElements;
         }
 
-        private readonly Dictionary<TwistedElementType, Func<double, double, double>> CalcCoreDiametersMethods =
+        private static readonly Dictionary<TwistedElementType, Func<double, double, double>> CalcCoreDiametersMethods =
             new Dictionary<TwistedElementType, Func<double, double, double>>
             {
                 { TwistedElementType.single, (singleElementDiameter, twistKoefficient) => singleElementDiameter * twistKoefficient },
@@ -65,35 +65,35 @@ namespace Cables
             return CalcCoreDiametersMethods[elementType].Invoke(singleElementDiameter, twistKoefficient);
         }
 
-        public double GetTwistKoefficient(int twistedElementsCount)
+        public static double GetTwistKoefficient(int twistedElementsCount)
         {
             return GetTwistInfo(twistedElementsCount).TwistCoefficient;
         }
 
-        public int[] GetLayersElementsCount(int twistedElementsCount)
+        public static int[] GetLayersElementsCount(int twistedElementsCount)
         {
             return GetTwistInfo(twistedElementsCount).LayersElementsCount;
         }
 
-        public TwistInfo GetTwistInfo(int twistedElementsCount)
+        public static TwistInfo GetTwistInfo(int twistedElementsCount)
         {
             CheckInputTwistedElementsCount(twistedElementsCount);
-            return twistInfoList.Where(info => info.QuantityElements == twistedElementsCount).First();
+            return baseTwistInfoList.Where(info => info.QuantityElements == twistedElementsCount).First();
         }
 
-        public double GetTwistStep(ICableElement singleTwistedElement, double twistedCoreDiameter)
+        public static double GetTwistStep(ICableElement singleTwistedElement, double twistedCoreDiameter)
         {
             return (singleTwistedElement is ConductingCore || singleTwistedElement is ExtrusionElement) ?
                 twistedCoreDiameter * 16 : twistedCoreDiameter * 18;
         }
 
-        public double GetTwistStep(TwistedElementType singleTwistedElementType, double twistedCoreDiameter)
+        public static double GetTwistStep(TwistedElementType singleTwistedElementType, double twistedCoreDiameter)
         {
             if (singleTwistedElementType == TwistedElementType.single) return twistedCoreDiameter * 16;
             return twistedCoreDiameter * 18;
         }
 
-        private TwistedElementType DefineTwistedCoreType(int twistedElementsCount)
+        private static TwistedElementType DefineTwistedCoreType(int twistedElementsCount)
         {
             CheckInputTwistedElementsCount(twistedElementsCount);
             switch (twistedElementsCount)
@@ -105,7 +105,7 @@ namespace Cables
             }
         }
 
-        private void CheckInputTwistedElementsCount(int twistedElementsCount)
+        private static void CheckInputTwistedElementsCount(int twistedElementsCount)
         {
             if (twistedElementsCount < 2)
                 throw new ArgumentException("Ошибочные данные! Нельзя скрутить число элементов меньше 2!");
