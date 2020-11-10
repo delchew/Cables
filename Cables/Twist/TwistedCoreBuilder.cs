@@ -8,7 +8,7 @@ namespace Cables
     public class TwistBuilder
     {
         private static ICollection<TwistInfo> baseTwistInfoList;
-        public static int MaxTwistedElementsCount;
+        public static int MaxTwistedElementsCount { get; private set; }
 
         public static void SetTwistInfoList(ICollection<TwistInfo> twistInfoList)
         {
@@ -25,7 +25,7 @@ namespace Cables
                 { TwistedElementType.four, (singleElementDiameter, twistKoefficient) => singleElementDiameter * twistKoefficient * 2.2 }
             };
 
-        public TwistedCore GetTwistedCore(int twistedElementsCount, ICableElement preform, Tape? tape = null, Thread? thread = null)
+        public static TwistedCore GetTwistedCore(int twistedElementsCount, ICableElement preform, Tape? tape = null, Thread? thread = null)
         {
             var twistInfo = GetTwistInfo(twistedElementsCount);
             var twistedElementType = DefineTwistedCoreType(twistedElementsCount);
@@ -56,7 +56,7 @@ namespace Cables
             return twistedCore;
         }
 
-        public double GetTwistedCoreDiameterBySingleElement(int twistedElementsCount, double singleElementDiameter, TwistedElementType elementType)
+        public static double GetTwistedCoreDiameterBySingleElement(int twistedElementsCount, double singleElementDiameter, TwistedElementType elementType)
         {
             if (elementType == TwistedElementType.core)
                 throw new ArgumentException("Метод не работает с типом скрученного сердечника Core!");
