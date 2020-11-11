@@ -8,6 +8,7 @@ namespace Cables
     public class TwistBuilder
     {
         private static ICollection<TwistInfo> baseTwistInfoList;
+
         public static int MaxTwistedElementsCount { get; private set; }
 
         public static void SetTwistInfoList(ICollection<TwistInfo> twistInfoList)
