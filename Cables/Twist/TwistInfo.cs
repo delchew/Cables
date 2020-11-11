@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Linq;
 
 namespace Cables
 {
@@ -24,30 +24,25 @@ namespace Cables
 
         public override bool Equals(object obj)
         {
-            if (obj is TwistInfo twistInfo)
+            if (obj == null)
+                return false;
+
+            if(obj is TwistInfo twistInfo)
             {
                 return QuantityElements == twistInfo.QuantityElements &&
                        TwistCoefficient == twistInfo.TwistCoefficient &&
-                       CompareArrays(LayersElementsCount, twistInfo.LayersElementsCount);
+                       LayersElementsCount.SequenceEqual(twistInfo.LayersElementsCount);
             }
-            throw new InvalidCastException($"Объект не является типом {GetType()}");
-        }
-
-        private bool CompareArrays(int[] arr1, int[] arr2)
-        {
-            if (arr1.Length != arr2.Length)
-                return false;
-            for (int i = 0; i < arr1.Length; i++)
-            {
-                if (arr1[i] != arr2[i])
-                    return false;
-            }
-            return true;
+            return false;
         }
 
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+            var hash = 19;
+            hash = hash * 37 + QuantityElements.GetHashCode();
+            hash = hash * 37 + TwistCoefficient.GetHashCode();
+            hash = hash * 37 + LayersElementsCount.GetHashCode();
+            return hash;
         }
     }
 }
