@@ -26,7 +26,7 @@ namespace Cables
                 { TwistedElementType.four, (singleElementDiameter, twistKoefficient) => singleElementDiameter * twistKoefficient * 2.2 }
             };
 
-        public static TwistedCore GetTwistedCore(int twistedElementsCount, ICableElement preform, Tape? tape = null, Thread? thread = null)
+        public static TwistedCore GetTwistedCore(int twistedElementsCount, ICableElement preform, Tape? tape = null, Thread thread = null)
         {
             var twistInfo = GetTwistInfo(twistedElementsCount);
             var twistedElementType = DefineTwistedCoreType(twistedElementsCount);

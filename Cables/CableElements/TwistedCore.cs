@@ -32,6 +32,6 @@ namespace Cables
         /// <summary>
         /// Информация о типе нити, если присутствует
         /// </summary>
-        public Thread? Thread { get; set; }
+        public Thread Thread { get; set; }
     }
 }

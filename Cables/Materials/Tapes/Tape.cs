@@ -1,11 +1,18 @@
 ﻿using System;
+using System.Linq;
 
 namespace Cables.Materials
 {
     public struct Tape
     {
+        /// <summary>
+        /// Название ленты
+        /// </summary>
         public string Name { get; set; }
 
+        /// <summary>
+        /// Массив с объектами типа "Слой ленты"
+        /// </summary>
         private TapeLayer[] tapeLayers;
         public TapeLayer[] TapeLayers
         {
@@ -18,18 +25,9 @@ namespace Cables.Materials
             }
         }
 
-        //private double width;
-        //public double Width
-        //{
-        //    get { return width; }
-        //    set
-        //    {
-        //        if (value <= 0)
-        //            throw new ArgumentException("Ширина ленты не может быть меньше или равна 0!");
-        //        width = value;
-        //    }
-        //}
-
+        /// <summary>
+        /// Толщина ленты, мкм
+        /// </summary>
         public double Thickness
         {
             get
@@ -41,6 +39,28 @@ namespace Cables.Materials
                     thickness += tape.Thickness;
                 return thickness;
             }
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
+            if (obj is Tape tape)
+            {
+                return Name == tape.Name &&
+                       TapeLayers.SequenceEqual(tape.TapeLayers);
+
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            var hash = 19;
+            hash = hash * 37 + Name.GetHashCode();
+            hash = hash * 37 + TapeLayers.GetHashCode();
+            hash = hash * 37 + Thickness.GetHashCode();
+            return hash;
         }
     }
 }
