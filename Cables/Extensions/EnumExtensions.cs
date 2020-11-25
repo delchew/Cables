@@ -1,0 +1,25 @@
+﻿using System;
+using System.ComponentModel;
+using System.Reflection;
+
+namespace Cables
+{
+    public static class EnumExtensions
+    {
+        /// <summary>
+        /// Возвращает значение свойства string Description атрибута DescriptionAttribute, которым помечен член перечисления. Возвращает enumElement.ToString(), если член не помечен атрибутом
+        /// </summary>
+        /// <param name="enumElement">Член перечисления для которого нужно получить Description</param>
+        /// <returns>Значение Description из атрибута DescriptionAttribute</returns>
+        public static string GetDescription(this Enum enumElement)
+        {
+            var memberInfo = enumElement.GetType()
+                                        .GetMember(enumElement.ToString());
+            if(memberInfo != null && memberInfo.Length > 0)
+            {
+                return memberInfo[0].GetCustomAttribute<DescriptionAttribute>().Description;
+            }
+            return enumElement.ToString();
+        }
+    }
+}
