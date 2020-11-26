@@ -46,7 +46,7 @@ namespace Cables.Braiding
         public static double CalculateWiresWieght(int spoolCounts, int wireCounts, double wireDiameter, double braidingAngle, double braidingDensity, Metal metal)
         {
             var braidingKoefficient = braidingDensity > 96 ? 1.0035 : 1.03;
-            return (spoolCounts * wireCounts * Math.PI * Math.Pow((wireDiameter * 0.001), 2) * metal.Density20 * braidingKoefficient * 1000) / (4 * Math.Sin(braidingAngle * Math.PI / 180));
+            return spoolCounts * wireCounts * Math.PI * Math.Pow((wireDiameter * 0.001), 2) * metal.Density20 * braidingKoefficient * 1000 / (4 * Math.Sin(braidingAngle * Math.PI / 180));
         }
     }
 }
