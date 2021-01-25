@@ -1,6 +1,6 @@
 ﻿namespace Cables
 {
-    public enum PolymerUsingType
+    public enum ExtrusionPolymerUsingType
     {
         insulation,
         filling,

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Cables.Materials
+﻿namespace Cables.Materials
 {
     public class Metal : Material
     {

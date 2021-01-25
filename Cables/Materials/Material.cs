@@ -2,14 +2,14 @@
 
 namespace Cables.Materials
 {
-    public class Material
+    public abstract class Material
     {
         private string name;
 
         /// <summary>
         /// Название материала 
         /// </summary>
-        public string Name
+        public string Name 
         {
             get { return name; }
             set
