@@ -1,6 +1,6 @@
 ﻿using Cables.Materials;
 
-namespace Cables
+namespace Cables.CableElements
 {
     /// <summary>
     /// Класс, описывающий сплошную токопроводящую жилу

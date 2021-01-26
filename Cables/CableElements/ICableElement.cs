@@ -1,4 +1,4 @@
-﻿namespace Cables
+﻿namespace Cables.CableElements
 {
     public interface ICableElement
     {

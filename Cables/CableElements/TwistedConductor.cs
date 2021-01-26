@@ -1,6 +1,6 @@
 ﻿using Cables.Materials;
 
-namespace Cables
+namespace Cables.CableElements
 {
     /// <summary>
     /// Класс описывает конструкцию скрученной токопроводящей жилы
