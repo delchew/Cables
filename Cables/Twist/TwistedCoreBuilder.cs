@@ -84,7 +84,7 @@ namespace Cables
 
         public static double GetTwistStep(ICableElement singleTwistedElement, double twistedCoreDiameter)
         {
-            return (singleTwistedElement is TwistedConductor || singleTwistedElement is ExtrusionElement) ?
+            return (singleTwistedElement is TwistedConductor || singleTwistedElement is InsulatedBillet) ?
                 twistedCoreDiameter * 16 : twistedCoreDiameter * 18;
         }
 

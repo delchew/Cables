@@ -11,7 +11,7 @@ namespace Cables.Materials
         /// <summary>
         /// Тип материала
         /// </summary>
-        public ExtrusionPolymerType PolymerType { get; set; }
+        public ExtrusionPolymerGroup PolymerType { get; set; }
 
         /// <summary>
         /// Назначение материала: изоляция, заполнение или оболочка

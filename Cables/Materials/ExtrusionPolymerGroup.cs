@@ -1,6 +1,6 @@
 ﻿namespace Cables.Materials
 {
-    public enum ExtrusionPolymerType
+    public enum ExtrusionPolymerGroup
     {
         PVC,
         PE,
