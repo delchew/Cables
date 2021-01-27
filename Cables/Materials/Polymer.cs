@@ -17,6 +17,6 @@ namespace Cables.Materials
         /// <summary>
         /// Диэлектрическая проницаемость
         /// </summary>
-        public double DielectricConstant { get; set; }
+        public double? DielectricConstant { get; set; }
     }
 }

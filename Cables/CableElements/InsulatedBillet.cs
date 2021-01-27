@@ -4,7 +4,7 @@ namespace Cables.CableElements
 {
     public class InsulatedBillet : IExtrudable<IConductor>
     {
-        public ExtrusionPolymer PolymerGroup { get; set; }
+        public ExtrusionPolymer ExtrusionPolymer { get; set; }
 
         public IConductor Billet { get; set; }
 
@@ -13,5 +13,7 @@ namespace Cables.CableElements
         public double? NominalThickness { get; set; }
 
         public double Diameter { get; set; }
+
+        public string ShortName { get; set; }
     }
 }

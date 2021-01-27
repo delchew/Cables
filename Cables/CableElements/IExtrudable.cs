@@ -4,7 +4,7 @@ namespace Cables.CableElements
 { 
     public interface IExtrudable<T> : ICableElement where T : ICableElement 
     {
-        ExtrusionPolymer PolymerGroup { get; set; }
+        ExtrusionPolymer ExtrusionPolymer { get; set; }
 
         T Billet { get; set; }
 
