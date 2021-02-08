@@ -2,6 +2,6 @@
 {
     public interface ICableElement
     {
-        double Diameter { get; }
+        double Diameter { get; set; }
     }
 }

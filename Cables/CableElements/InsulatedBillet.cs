@@ -6,8 +6,9 @@ namespace Cables.CableElements
     {
         public IConductor Billet { get; set; } //public long ConductorId { get; set; }
 
-        public ExtrusionPolymer ExtrusionPolymer { get; set; } //public long PolymerGroupId { get; set; } - поменять!
+        public PolymerGroup PolymerGroup { get; set; } //public long PolymerGroupId { get; set; }
 
+        public string ShortName { get; set; } //public long CableShortNameId { get; set; }
 
         public double Diameter { get; set; } //public decimal Diameter { get; set; }
 
@@ -15,6 +16,5 @@ namespace Cables.CableElements
 
         public double? NominalThickness { get; set; } //public decimal? NominalThickness { get; set; }
 
-        public string ShortName { get; set; } //public long CableShortNameId { get; set; }
     }
 }

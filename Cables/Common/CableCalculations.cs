@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Cables
+namespace Cables.Common
 {
     public static class CableCalculations
     {
