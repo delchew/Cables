@@ -7,6 +7,8 @@ namespace Cables.CableElements
     /// </summary>
     public class SolidConductor : IConductor
     {
+        public int Id { get; set; }
+
         /// <summary>
         /// Название токопроводящей жилы
         /// </summary>

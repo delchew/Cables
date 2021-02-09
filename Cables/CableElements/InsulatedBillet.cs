@@ -4,6 +4,8 @@ namespace Cables.CableElements
 {
     public class InsulatedBillet : IExtrudable<IConductor>
     {
+        public int Id { get; set; }
+
         public string Title { get; set; }
 
         public IConductor Billet { get; set; }

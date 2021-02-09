@@ -7,6 +7,8 @@ namespace Cables.CableElements
     /// </summary>
     public class TwistedConductor : IConductor
     {
+        public int Id { get; set; }
+
         /// <summary>
         /// Название скрученной токопроводящей жилы
         /// </summary>

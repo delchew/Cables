@@ -7,6 +7,8 @@ namespace Cables.Brands.Common
 {
     public abstract class Cable : ISingleConstruction
     {
+        public int Id { get; set; }
+
         public InsulatedBillet InsulatedBillet { get; set; }
 
         public int ElementsCount { get; set; }
