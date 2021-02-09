@@ -8,6 +8,11 @@ namespace Cables.CableElements
     public class SolidConductor : IConductor
     {
         /// <summary>
+        /// Название токопроводящей жилы
+        /// </summary>
+        public string Title { get; set; }
+
+        /// <summary>
         /// Диаметр токопроводящей жилы в мм
         /// </summary>
         public double Diameter { get; set; }

@@ -13,7 +13,7 @@ namespace Cables.Common
         [Description("(PE, N)")]
         PEN = 3,
 
-        [Description("none")]
+        [Description("")]
         none = 4
     }
 }

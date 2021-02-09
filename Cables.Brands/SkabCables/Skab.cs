@@ -1,6 +1,6 @@
 ﻿using Cables.Brands.Common;
 
-namespace Cables.Brands.Skab
+namespace Cables.Brands.SkabCables
 {
     public class Skab : Cable, IIndividualFoilShields, IShield, IWaterBlockingElements, IFilled, IBraidArmoured, IArmourTube
     {

@@ -1,7 +1,7 @@
 ﻿using Cables.Brands.Common;
 using Cables.Common;
 
-namespace Cables.Brands.Kunrs
+namespace Cables.Brands.KunrsCables
 {
     public class Kunrs : Cable, IFoilShield, IFilled, IBraidArmoured, IArmourTube
     {

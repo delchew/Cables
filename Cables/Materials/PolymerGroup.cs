@@ -15,6 +15,8 @@ namespace Cables.Materials
 
         [Description("Безгалогенный компаунд")]
         HFCompound = 4,
+
+        [Description("Полиуретан")]
         PUR = 5,
 
         [Description("ПВХ пластикат LS")]

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Cables.Brands.Skab
+namespace Cables.Brands.SkabCables
 {
     public enum SkabVoltageType
     {

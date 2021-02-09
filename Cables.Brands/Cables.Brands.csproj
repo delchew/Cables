@@ -5,10 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Common\" />
-    <Folder Include="Kunrs\" />
-    <Folder Include="Skab\" />
-    <Folder Include="Kip\" />
+    <Folder Include="KunrsCables\" />
+    <Folder Include="SkabCables\" />
+    <Folder Include="KipCables\" />
     <Folder Include="FireAlarmCables\" />
   </ItemGroup>
   <ItemGroup>
