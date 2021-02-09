@@ -56,7 +56,7 @@ namespace Cables.Brands.Common.NameBuilders
         public string GetCableMarking(Skab cable)
         {
             var cableFullName = GetCableName(cable);
-            return GetCableMarking(cableFullName, cable.TechnicalSpecifications);
+            return GetCableMarking(cableFullName, cable.TechConditions.Title);
         }
 
         public string GetCableMarking(string cableFullName, string techSpecificationsName)
