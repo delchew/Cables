@@ -17,5 +17,18 @@ namespace Cables.Common
         {
             return Math.Round(Math.PI * lengthBetweenFlanges * (Math.Pow(reelDiameter - 2 * deltaToEdge, 2) - barrelDiameter * barrelDiameter) / (4000 * cableDiameter * cableDiameter));
         }
+
+        /// <summary>
+        /// Форматирует число с плавающей точкой, определяющее площадь кабельного проводника в правильный формат кабельной маркировки
+        /// </summary>
+        /// <param name="areaInSqrMm">Площадь сечения проводника</param>
+        /// <returns>Строковое представление сечения кабельного проводника с нужным количеством нулей</returns>
+        public static string FormatConductorArea(double areaInSqrMm)
+        {
+            if (areaInSqrMm < 4 && areaInSqrMm * 100 % 10 == 0)
+                return string.Format("{0:f1}", areaInSqrMm);
+            return areaInSqrMm.ToString();
+        }
+
     }
 }

@@ -11,30 +11,30 @@ namespace Cables
         /// Одиночный элемент
         /// </summary>
         [Description("Одиночный")]
-        single,
+        single = 1,
 
         /// <summary>
         /// Скрученная пара
         /// </summary>
         [Description("Пара")]
-        pair,
+        pair = 2,
 
         /// <summary>
         /// Скрученная тройка
         /// </summary>
         [Description("Тройка")]
-        triple,
+        triple = 3,
 
         /// <summary>
         /// Скрученная четвёрка
         /// </summary>
         [Description("Четвёрка")]
-        four,
+        four = 4,
 
         /// <summary>
         /// Скрученный сердечник со сложным набором элементов
         /// </summary>
         [Description("Сердечник")]
-        core
+        core = 100
     }
 }

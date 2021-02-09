@@ -2,6 +2,8 @@
 using Cables.Materials;
 using System.Text;
 using System.Collections.Generic;
+using Cables.Common;
+using System;
 
 namespace Cables.Brands.Common.NameBuilders
 {
@@ -25,12 +27,14 @@ namespace Cables.Brands.Common.NameBuilders
         public string GetCableName(Kunrs cable)
         {
             _nameBuilder.Append(cable.HasFoilShield ? "Э" : string.Empty);
-            var cablePolymerLetter = _polymerNamePartsDict[cable.CoverPolymerGroup];
-            _nameBuilder.Append(cable.HasArmourTube ? $"{cablePolymerLetter}K" : string.Empty);
-            _nameBuilder.Append(cablePolymerLetter);
+            var namePart = _polymerNamePartsDict[cable.CoverPolymerGroup];
+            _nameBuilder.Append(cable.HasArmourTube ? $"{namePart}K" : string.Empty);
+            _nameBuilder.Append(namePart);
             _nameBuilder.Append(cable.FireProtectionClass.Designation);
-            var cableArea = FormatConductorArea(cable.InsulatedBillet.Billet.DeclaredAreaInSqrMm ?? 0d);
-            _nameBuilder.Append($" {cable.ElementsCount}х{cableArea}");
+            if (cable.InsulatedBillet.Billet.DeclaredAreaInSqrMm == null)
+                throw new ArgumentException("Неверные данные! Площадь сечения для кабелей марки СКАБ должна быть обязательно указана!");
+            namePart = CableCalculations.FormatConductorArea(cable.InsulatedBillet.Billet.DeclaredAreaInSqrMm ?? 0d);
+            _nameBuilder.Append($" {cable.ElementsCount}х{namePart}");
             _nameBuilder.Append($" {cable.PowerColorScheme.GetDescription()}");
             return _nameBuilder.ToString();
         }
@@ -44,13 +48,6 @@ namespace Cables.Brands.Common.NameBuilders
         {
             var cableFullName = GetCableName(cable);
             return GetCableMarking(cableFullName, cable.TechnicalSpecifications);
-        }
-
-        private string FormatConductorArea(double areaInSqrMm)
-        {
-            if (areaInSqrMm < 4 && areaInSqrMm * 100 % 10 == 0)
-                return string.Format("{0:f1}", areaInSqrMm);
-            return areaInSqrMm.ToString();
         }
     }
 }

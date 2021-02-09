@@ -24,10 +24,5 @@ namespace Cables.Brands.Common
         public double? MaxCableDiameter { get; set; }
 
         public string Name { get; set; }
-
-        
-
-        
-
     }
 }
