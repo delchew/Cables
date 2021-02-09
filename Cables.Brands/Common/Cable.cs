@@ -15,7 +15,7 @@ namespace Cables.Brands.Common
 
         public TwistedElementType TwistedElementType { get; set; }
 
-        public string TechnicalSpecifications { get; set; }
+        public TechnicalSpecifications TechConditions { get; set; }
 
         public FireProtectionClass FireProtectionClass { get; set; }
 

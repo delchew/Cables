@@ -1,6 +1,6 @@
 ﻿namespace Cables.Common
 {
-    public class TechnicalSpecifications
+    public struct TechnicalSpecifications
     {
         public int Id { get; set; }
 

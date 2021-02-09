@@ -1,6 +1,6 @@
 ﻿namespace Cables.Common
 {
-    public class FireProtectionClass
+    public struct FireProtectionClass
     {
         public const string GOST = "ГОСТ 31565-2012";
 
