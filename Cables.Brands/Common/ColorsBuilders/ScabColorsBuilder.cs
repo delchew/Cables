@@ -19,7 +19,7 @@ namespace Cables.Brands.Common.ColorsBuilders
 
         public IList<Color[]> GetCableColorsSet (Skab skab)
         {
-            polymerType = skab.InsulationType == PolymerType.plastic ? "Plastic" : "Rubber";
+            polymerType = skab.InsulatedBillet.PolymerGroup == PolymerGroup.Rubber ? "Rubber" : "Plastic";
             var twistInfo = twistedCoreBuilder.GetTwistInfo(skab.ElementsCount);
             if (skab.HasIndividualFoilShields && (skab.TwistedElementType == TwistedElementType.pair || skab.TwistedElementType == TwistedElementType.triple))
                 return GetIndividualShieldColors(skab.TwistedElementType, twistInfo);

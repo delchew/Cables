@@ -20,7 +20,8 @@ namespace Cables.Brands.Common.NameBuilders
 
         public string GetCableName(Skab cable)
         {
-            _nameBuilder.Append(cable.VoltageType.GetDescription());
+            var skabVoltageType = cable.OperatingVoltage.ACVoltage == 380 ? 250 : 660;
+            _nameBuilder.Append($"СКАБ {skabVoltageType}");
 
             if (cable.HasArmourTube)
                 _nameBuilder.Append("K");
@@ -35,7 +36,7 @@ namespace Cables.Brands.Common.NameBuilders
 
             if (cable.CoverPolymerGroup == PolymerGroup.HFCompound ||
                 cable.CoverPolymerGroup == PolymerGroup.PUR)
-                _nameBuilder.Append("-ХЛ");
+                _nameBuilder.Append($"-{cable.ClimaticModification.Title}");
             var namePart = cable.HasIndividualFoilShields ? "э" : string.Empty;
             _nameBuilder.Append($" {cable.ElementsCount}х{(int)cable.TwistedElementType}{namePart}х");
             if (cable.InsulatedBillet.Billet.DeclaredAreaInSqrMm == null)

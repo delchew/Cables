@@ -9,6 +9,10 @@ namespace Cables.Brands.Common
     {
         public int Id { get; set; }
 
+        public string Title { get; set; }
+
+        public OperatingVoltage OperatingVoltage { get; set; }
+
         public InsulatedBillet InsulatedBillet { get; set; }
 
         public int ElementsCount { get; set; }
@@ -25,6 +29,6 @@ namespace Cables.Brands.Common
 
         public double? MaxCableDiameter { get; set; }
 
-        public string Name { get; set; }
+        public ClimaticModification ClimaticModification { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Cables.Materials;
+﻿using Cables.Common;
+using Cables.Materials;
 
 namespace Cables.CableElements
 {
@@ -12,13 +13,12 @@ namespace Cables.CableElements
 
         public PolymerGroup PolymerGroup { get; set; }
 
-        public string ShortName { get; set; }
+        public OperatingVoltage OperatingVoltage { get; set; }
 
         public double Diameter { get; set; }
 
         public double MinThickness { get; set; }
 
         public double? NominalThickness { get; set; }
-
     }
 }

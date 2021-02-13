@@ -4,8 +4,6 @@ namespace Cables.Brands.SkabCables
 {
     public class Skab : Cable, IIndividualFoilShields, IShield, IWaterBlockingElements, IFilled, IBraidArmoured, IArmourTube
     {
-        public SkabVoltageType VoltageType { get; set; }
-
         public bool HasIndividualFoilShields { get; set; }
 
         public bool HasFoilShield { get; set; }
