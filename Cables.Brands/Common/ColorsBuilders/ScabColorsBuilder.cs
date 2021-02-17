@@ -1,7 +1,6 @@
 ﻿using System.Drawing;
 using System.Collections.Generic;
-using System.IO;
-using Cables.Materials;
+using System.Linq;
 using System;
 using Cables.Brands.SkabCables;
 
@@ -9,21 +8,19 @@ namespace Cables.Brands.Common.ColorsBuilders
 {
     public class ScabColorsBuilder : ICableColorsBuilder<Skab>
     {
-        private readonly TwistedCoreBuilder twistedCoreBuilder;
-        private string polymerType;
+        private IEnumerable<TwistInfo> _twistInfoCollection;
 
-        public ScabColorsBuilder()
+        public ScabColorsBuilder(IEnumerable<TwistInfo> twistInfoCollection)
         {
-            twistedCoreBuilder = new TwistedCoreBuilder(new FileInfo(@"JsonDataFiles\twistInfo.json"));
+            _twistInfoCollection = twistInfoCollection;
         }
 
         public IList<Color[]> GetCableColorsSet(Skab skab)
         {
-            polymerType = skab.InsulatedBillet.PolymerGroup == PolymerGroup.Rubber ? "Rubber" : "Plastic";
-            var twistInfo = new TwistInfo();//twistedCoreBuilder.GetTwistInfo(skab.ElementsCount);
+            var twistInfo = _twistInfoCollection.Where(info => info.QuantityElements == skab.ElementsCount).First();
             if (skab.HasIndividualFoilShields && (skab.TwistedElementType == TwistedElementType.pair || skab.TwistedElementType == TwistedElementType.triple))
-                //return GetIndividualShieldColors(skab.TwistedElementType, twistInfo);
-                return GetColors(skab.TwistedElementType, twistInfo);
+                return GetIndividualShieldColors(skab.TwistedElementType, twistInfo);
+            return GetColors(skab.TwistedElementType, twistInfo);
         }
 
         public IDictionary<Color, int> GetCableColorLengthsSet(Skab skabOrder)
@@ -116,5 +113,7 @@ namespace Cables.Brands.Common.ColorsBuilders
             for (int i = 0; i < twistInfo.QuantityElements; i++) colors.Add(individualColorsCombine);
             return colors;
         }
+
+        private SingleElementsColors
     }
 }
