@@ -6,6 +6,5 @@
 
   <ItemGroup>
     <Folder Include="Extensions\" />
-    <Folder Include="Common\" />
   </ItemGroup>
 </Project>

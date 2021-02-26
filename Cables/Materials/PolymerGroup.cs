@@ -26,6 +26,6 @@ namespace Cables.Materials
         PVC_LSLTx = 7,
 
         [Description("Резина LTx")]
-        RubberLtx = 8
+        RubberLTx = 8
     }
 }
