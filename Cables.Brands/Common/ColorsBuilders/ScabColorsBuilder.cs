@@ -60,7 +60,7 @@ namespace Cables.Brands.Common.ColorsBuilders
                     break;
                 default: throw new ArgumentException("Кабели марки СКАБ не могут содержать изолированные элементы с таким типом скрутки!");
             }
-            var jsonDataPath = $"$.SkabInsulationColors.{polymerType}.{selectedSection}";
+            //var jsonDataPath = $"$.SkabInsulationColors.{polymerType}.{selectedSection}";
             var cableColorsSet = new List<Color[]>();// colorsRepository.GetObjects<Color[]>(colorsDataFileInfo, jsonDataPath);
             if (twistInfo.QuantityElements <= cableColorsSet.Count)
             {
@@ -77,9 +77,9 @@ namespace Cables.Brands.Common.ColorsBuilders
         private IList<Color[]> GetCountingMarkingColors(TwistedElementType twistType, TwistInfo twistInfo)
         {
             var colors = new List<Color[]>();
-            var jsonDataPath = $"$.SkabInsulationColors.{polymerType}.CountingMarkingColors";
-            var colorsDictionary = colorsRepository.GetObjects<TwistedElementType, CountingMarkingColors>(colorsDataFileInfo, jsonDataPath);
-            var countingMarkingGolors = colorsDictionary[twistType];
+            //var jsonDataPath = $"$.SkabInsulationColors.{polymerType}.CountingMarkingColors";
+            //var colorsDictionary = colorsRepository.GetObjects<TwistedElementType, CountingMarkingColors>(colorsDataFileInfo, jsonDataPath);
+            //var countingMarkingGolors = colorsDictionary[twistType];
             var pairsCount = 1;
             for (int i = 0; i < twistInfo.LayersElementsCount.Length; i++)
             {
@@ -88,13 +88,13 @@ namespace Cables.Brands.Common.ColorsBuilders
                     switch (pairsCount)
                     {
                         case 1:
-                            colors.Add(countingMarkingGolors.CountingColorsSet);
+                            //colors.Add(countingMarkingGolors.CountingColorsSet);
                             break;
                         case 2:
-                            colors.Add(countingMarkingGolors.DirectingColorsSet);
+                            //colors.Add(countingMarkingGolors.DirectingColorsSet);
                             break;
                         default:
-                            colors.Add(countingMarkingGolors.OtherColorsSet);
+                            //colors.Add(countingMarkingGolors.OtherColorsSet);
                             break;
                     }
                     pairsCount++;
@@ -107,13 +107,13 @@ namespace Cables.Brands.Common.ColorsBuilders
         private IList<Color[]> GetIndividualShieldColors(TwistedElementType twistType, TwistInfo twistInfo)
         {
             var colors = new List<Color[]>();
-            var jsonDataPath = $"$.SkabInsulationColors.{polymerType}.IndividualColorsCombine";
-            var colorsDictionary = colorsRepository.GetObjects<TwistedElementType, Color[]>(colorsDataFileInfo, jsonDataPath);
-            var individualColorsCombine = colorsDictionary[twistType];
-            for (int i = 0; i < twistInfo.QuantityElements; i++) colors.Add(individualColorsCombine);
+            //var jsonDataPath = $"$.SkabInsulationColors.{polymerType}.IndividualColorsCombine";
+            //var colorsDictionary = colorsRepository.GetObjects<TwistedElementType, Color[]>(colorsDataFileInfo, jsonDataPath);
+            //var individualColorsCombine = colorsDictionary[twistType];
+            //for (int i = 0; i < twistInfo.QuantityElements; i++) colors.Add(individualColorsCombine);
             return colors;
         }
 
-        private SingleElementsColors
+        //private SingleElementsColors
     }
 }
