@@ -2,7 +2,7 @@
 
 namespace Cables.Materials
 {
-    public abstract class Material
+    public class Material
     {
         private string name;
 
