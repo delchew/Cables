@@ -1,6 +1,6 @@
 ﻿namespace Cables.Common
 {
-    public class OperatingVoltage
+    public class OperatingVoltageEntity
     {
         public int Id { get; set; }
 

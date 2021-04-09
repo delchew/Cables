@@ -16,9 +16,9 @@ namespace Cables.Brands.Common
 
         public TwistedElementType TwistedElementType { get; set; }
 
-        public TechnicalConditions TechConditions { get; set; }
+        public TechnicalConditionsEntity TechConditions { get; set; }
 
-        public FireProtectionClass FireProtectionClass { get; set; }
+        public FireProtectionClassEntity FireProtectionClass { get; set; }
 
         public PolymerGroup CoverPolymerGroup { get; set; }
 
@@ -28,7 +28,7 @@ namespace Cables.Brands.Common
 
         public ClimaticModification ClimaticModification { get; set; }
 
-        public OperatingVoltage OperatingVoltage { get; set; }
+        public OperatingVoltageEntity OperatingVoltage { get; set; }
 
         public CablePropertySet CablePropertySet { get; set; }
     }

@@ -30,5 +30,12 @@ namespace Cables.Common
             return areaInSqrMm.ToString();
         }
 
+        public static string FormatConductorArea(decimal areaInSqrMm)
+        {
+            if (areaInSqrMm < 4 && areaInSqrMm * 100 % 10 == 0)
+                return string.Format("{0:f1}", areaInSqrMm);
+            return areaInSqrMm.ToString();
+        }
+
     }
 }

@@ -13,7 +13,7 @@ namespace Cables.CableElements
 
         public PolymerGroup PolymerGroup { get; set; }
 
-        public OperatingVoltage OperatingVoltage { get; set; }
+        public OperatingVoltageEntity OperatingVoltage { get; set; }
 
         public double Diameter { get; set; }
 

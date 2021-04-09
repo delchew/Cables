@@ -1,6 +1,6 @@
 ﻿namespace Cables.Common
 {
-    public class FireProtectionClass
+    public class FireProtectionClassEntity
     {
         public const string GOST = "ГОСТ 31565-2012";
 

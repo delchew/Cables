@@ -1,6 +1,6 @@
 ﻿namespace Cables.Common
 {
-    public class TechnicalConditions
+    public class TechnicalConditionsEntity
     {
         public int Id { get; set; }
 
