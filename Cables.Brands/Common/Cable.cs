@@ -30,6 +30,6 @@ namespace Cables.Brands.Common
 
         public OperatingVoltage OperatingVoltage { get; set; }
 
-        public CableProperty CableProperties { get; set; }
+        public CablePropertySet CablePropertySet { get; set; }
     }
 }

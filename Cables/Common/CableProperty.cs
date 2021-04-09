@@ -3,7 +3,7 @@
 namespace Cables.Common
 {
     [Flags]
-    public enum CableProperty
+    public enum CablePropertySet
     {
         HasFoilShield = 1,
 
