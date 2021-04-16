@@ -23,6 +23,11 @@ namespace Cables.Common
 
         HasWaterBlockStripe = 256,
 
-        SparkSafety = 512
+        SparkSafety = 512,
+
+        HasMicaWinding = 1024,
+
+        HasConductorMicaWinding = 2048
+
     }
 }
